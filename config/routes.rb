@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/health_check', to: proc { [200, {}, ['success']] }
+
+  namespace :v1 do
+    resources :portfolios, only: %i[create show index profit] do
+      get :profit, on: :member
+    end
+  end 
 end
