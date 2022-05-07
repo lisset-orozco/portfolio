@@ -66,7 +66,7 @@ docker compose run --rm api rails g scaffold user name last_name username age:in
 docker compose run --rm api rails db:migrate
 ```
 
-> go to link `localhost:3000/users`
+> go to link `localhost:3000`
 
 ### Do you want to connect to the database?
 

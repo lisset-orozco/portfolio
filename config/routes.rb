@@ -17,8 +17,4 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/health_check', to: proc { [200, {}, ['success']] }
-
-  namespace :v1 do
-    resources :users
-  end
 end
