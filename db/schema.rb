@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_08_221608) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_230158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_221608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stock_histories", force: :cascade do |t|
+    t.float "amount", null: false
+    t.float "price", null: false
+    t.datetime "purchase_date", null: false
+    t.bigint "portfolio_stock_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_stock_id"], name: "index_stock_histories_on_portfolio_stock_id"
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.string "symbol", null: false
     t.datetime "created_at", null: false
@@ -40,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_221608) do
 
   add_foreign_key "portfolio_stocks", "portfolios"
   add_foreign_key "portfolio_stocks", "stocks"
+  add_foreign_key "stock_histories", "portfolio_stocks"
 end

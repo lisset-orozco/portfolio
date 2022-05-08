@@ -20,6 +20,11 @@ RSpec.describe PortfolioStock, type: :model do
       t = described_class.reflect_on_association(:stock)
       expect(t.macro).to eq(:belongs_to)
     end
+
+    it 'has_many stock_histories' do
+      t = described_class.reflect_on_association(:stock_histories)
+      expect(t.macro).to eq(:has_many)
+    end
   end
 
   describe '.validation' do
