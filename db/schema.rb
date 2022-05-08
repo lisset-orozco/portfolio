@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_07_222607) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_221608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "portfolio_stocks", force: :cascade do |t|
+    t.bigint "portfolio_id", null: false
+    t.bigint "stock_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id", "stock_id"], name: "index_portfolio_stocks_on_portfolio_id_and_stock_id", unique: true
+    t.index ["portfolio_id"], name: "index_portfolio_stocks_on_portfolio_id"
+    t.index ["stock_id"], name: "index_portfolio_stocks_on_stock_id"
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name", null: false
@@ -28,4 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_222607) do
     t.index ["symbol"], name: "index_stocks_on_symbol"
   end
 
+  add_foreign_key "portfolio_stocks", "portfolios"
+  add_foreign_key "portfolio_stocks", "stocks"
 end

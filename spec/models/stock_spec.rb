@@ -25,4 +25,11 @@ RSpec.describe Stock, type: :model do
       it { expect(subject).to be_valid }
     end
   end
+
+  describe 'relation' do
+    it 'has_many portfolio_stocks' do
+      t = described_class.reflect_on_association(:portfolio_stocks)
+      expect(t.macro).to eq(:has_many)
+    end
+  end
 end
