@@ -24,6 +24,12 @@ class V1::StocksController < ApplicationController
   end
 
   def market_price
-    render(json: { test: 'market_price' })
+    result = Stocks::FindMarketPriceUseCase.call(params)
+
+    if result.success?
+      render json: { market_price: result.payload }
+    else
+      render json: { error: result.error }, status: :unprocessable_entity
+    end
   end
 end
