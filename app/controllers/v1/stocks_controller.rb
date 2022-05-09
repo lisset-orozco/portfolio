@@ -4,7 +4,13 @@ class V1::StocksController < ApplicationController
   end
 
   def create
-    render(json: { test: 'create' })
+    result = Stocks::CreateUseCase.call(params)
+
+    if result.success?
+      render json: { id: result.payload.id }
+    else
+      render json: { error: result.error }, status: :unprocessable_entity
+    end
   end
 
   def price
