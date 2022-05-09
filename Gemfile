@@ -38,6 +38,8 @@ gem 'bootsnap', '~> 1.11', '>= 1.11.1', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'jsonapi-serializer', '~> 2.2'
+
 # Open up your API to the phenomenal OpenAPI ecosystem by exposing OpenAPI files, that describe your service, as JSON
 # endpoints. More about the OpenAPI initiative here: http://spec.openapis.org/
 gem 'rswag-api', '~> 2.5', '>= 2.5.1'
