@@ -1,6 +1,23 @@
-[![Continuous Integration](https://github.com/joalbertg/dockerizing-ror-app/actions/workflows/build_with_tests_and_linters.yml/badge.svg)](https://github.com/joalbertg/dockerizing-ror-app/actions/workflows/build_with_tests_and_linters.yml)
+[![Continuous Integration](https://github.com/lisset-orozco/portfolio/actions/workflows/build_with_tests_and_linters.yml/badge.svg)](https://github.com/lisset-orozco/portfolio/actions/workflows/build_with_tests_and_linters.yml)
 
 # Ruby on Rails on Docker with CI/CD
+
+#### Heroku links
+
+* ApiDoc: https://portfolio-fintual.herokuapp.com/api-docs
+<p align="center">
+  <kbd>
+    <img src="miscellaneous/images/doc.png" title="workflow">
+  </kbd>
+</p>
+
+#### ER Diagram
+
+<p align="center">
+  <kbd>
+    <img src="miscellaneous/images/diagram.jpeg" title="workflow">
+  </kbd>
+</p>
 
 ## Quick start
 
@@ -65,7 +82,7 @@ heroku create --region us <APP-NAME>
 - create authorizations
 
 ```shell
-heroku authorizations
+heroku authorizations:create
 ```
 
 - copy the Token to `HEROKU_API_KEY`
