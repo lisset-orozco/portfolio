@@ -15,7 +15,7 @@ RSpec.configure do |config|
   # document below. You can override this behavior by adding a swagger_doc tag to the
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
-    'v1/swagger.yaml': {
+    'v1/swagger.yaml' => {
       openapi: '3.0.1',
       info: {
         title: 'API V1',
@@ -27,11 +27,60 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'www.example.com'
+              default: ENV.fetch('HOST') { 'localhost:3000' }
             }
           }
         }
-      ]
+      ],
+      components: {
+        schemas: {
+          portfolio: {
+            type: 'object',
+            properties: {
+              name: { type: 'string', example: 'personal' },
+              description: { type: 'string', example: 'personal investments' },
+              stocks: {
+                type: 'object',
+                properties: {
+                  ROSEUSDT: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        amount: { type: 'number', example: 1.5 },
+                        purchase_date: { type: 'string', example: '2022-04-29' },
+                        price: { type: 'number', example: 36.5 }
+                      }
+                    }
+                  },
+                  BTCUSDT: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        amount: { type: 'number', example: 0.5 },
+                        purchase_date: { type: 'string', example: '2022-04-29' },
+                        price: { type: 'number', example: 36550 }
+                      }
+                    }
+                  },
+                  ETHUSDT: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        amount: { type: 'number', example: 3.5 },
+                        purchase_date: { type: 'string', example: '2022-04-29' },
+                        price: { type: 'number', example: 2450 }
+                      }
+                    }
+                  },
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -40,4 +89,5 @@ RSpec.configure do |config|
   # the key, this may want to be changed to avoid putting yaml in json files.
   # Defaults to json. Accepts ':json' and ':yaml'.
   config.swagger_format = :yaml
+  config.swagger_dry_run = false
 end
