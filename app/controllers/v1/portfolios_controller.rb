@@ -10,6 +10,12 @@ class V1::PortfoliosController < ApplicationController
   end
 
   def profit
-    render(json: { test: 'profit' })
+    result = Portfolios::CalculateProfitUseCase.call(params)
+
+    if result.success?
+      render json: result.payload
+    else
+      render json: { error: result.error }, status: :unprocessable_entity
+    end
   end
 end
