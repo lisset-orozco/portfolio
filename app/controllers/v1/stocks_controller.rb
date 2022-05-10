@@ -28,4 +28,10 @@ class V1::StocksController < ApplicationController
       render json: { error: result.error }, status: :unprocessable_entity
     end
   end
+
+  private
+
+  def stock_params
+    params.permit(:portfolio_id, :date, :symbol, stocks: {})
+  end
 end
