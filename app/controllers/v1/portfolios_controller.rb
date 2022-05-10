@@ -1,12 +1,4 @@
 class V1::PortfoliosController < ApplicationController
-  def index
-    render(json: { test: 'index' })
-  end
-
-  def show
-    render(json: { test: 'show' })
-  end
-
   def create
     result = Portfolios::CreateUseCase.call(params)
 

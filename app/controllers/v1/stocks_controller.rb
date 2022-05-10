@@ -1,8 +1,4 @@
 class V1::StocksController < ApplicationController
-  def show
-    render(json: { test: 'show' })
-  end
-
   def create
     result = Stocks::CreateUseCase.call(params)
 
