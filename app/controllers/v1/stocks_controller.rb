@@ -1,37 +1,41 @@
-class V1::StocksController < ApplicationController
-  def create
-    result = Stocks::CreateUseCase.call(params)
+# frozen_string_literal: true
 
-    if result.success?
-      render json: { id: result.payload.id }
-    else
-      render json: { error: result.error }, status: :unprocessable_entity
+module V1
+  class StocksController < ApplicationController
+    def create
+      result = Stocks::CreateUseCase.call(params)
+
+      if result.success?
+        render(json: { id: result.payload.id })
+      else
+        render(json: { error: result.error }, status: :unprocessable_entity)
+      end
     end
-  end
 
-  def price
-    result = Stocks::FindPriceUseCase.call(params)
+    def price
+      result = Stocks::FindPriceUseCase.call(params)
 
-    if result.success?
-      render json: StockHistorySerializer.new(result.payload), status: :ok
-    else
-      render json: { error: result.error }, status: :unprocessable_entity
+      if result.success?
+        render(json: StockHistorySerializer.new(result.payload), status: :ok)
+      else
+        render(json: { error: result.error }, status: :unprocessable_entity)
+      end
     end
-  end
 
-  def market_price
-    result = Stocks::FindMarketPriceUseCase.call(params)
+    def market_price
+      result = Stocks::FindMarketPriceUseCase.call(params)
 
-    if result.success?
-      render json: { market_price: result.payload }
-    else
-      render json: { error: result.error }, status: :unprocessable_entity
+      if result.success?
+        render(json: { market_price: result.payload })
+      else
+        render(json: { error: result.error }, status: :unprocessable_entity)
+      end
     end
-  end
 
-  private
+    private
 
-  def stock_params
-    params.permit(:portfolio_id, :date, :symbol, stocks: {})
+    def stock_params
+      params.permit(:portfolio_id, :date, :symbol, stocks: {})
+    end
   end
 end

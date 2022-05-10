@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Portfolio, type: :model do
+RSpec.describe(Portfolio, type: :model) do
   subject { build(:portfolio) }
 
   describe 'object' do

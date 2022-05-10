@@ -10,7 +10,7 @@ module StockHistories
     def call
       result = stock_histories(params[:histories], params[:portfolio_stock])
       response(success: true, payload: result)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 
@@ -24,7 +24,7 @@ module StockHistories
           amount: history[:amount],
           price: history[:price],
           purchase_date: history[:purchase_date],
-          portfolio_stock: portfolio_stock
+          portfolio_stock:
         )
       end
     end

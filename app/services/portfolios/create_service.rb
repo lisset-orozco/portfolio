@@ -13,7 +13,7 @@ module Portfolios
       portfolio.save!
 
       response(success: true, payload: portfolio)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

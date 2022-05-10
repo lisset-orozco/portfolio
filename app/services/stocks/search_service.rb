@@ -10,7 +10,7 @@ module Stocks
     def call
       stock = Stock.find_by!(**params)
       response(success: true, payload: stock)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

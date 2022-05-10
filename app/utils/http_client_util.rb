@@ -2,11 +2,6 @@
 
 class HttpClientUtil
   def self.call(http_method, params)
-    response = HTTParty.send(
-      http_method,
-      params[:url],
-      body: params[:body],
-      headers: params[:headers] || {}
-    )
+    HTTParty.public_send(http_method, params[:url], body: params[:body], headers: params[:headers] || {})
   end
 end

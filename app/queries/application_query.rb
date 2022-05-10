@@ -2,14 +2,14 @@
 
 class ApplicationQuery
   def initialize(scope = nil)
-    @scope = scope || default_scope
+    @scope = scope || default
   end
 
   private
 
   attr_reader :scope
 
-  def default_scope
+  def default
     model_class.all
   end
 

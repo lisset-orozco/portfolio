@@ -9,8 +9,8 @@ module Stocks
 
     def call
       search_market_price
-    rescue StandardError => e
-      response(error: e)
+    rescue => error
+      response(error:)
     end
 
     private

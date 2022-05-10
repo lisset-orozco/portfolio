@@ -9,7 +9,7 @@ module Stocks
 
     def call
       response(success: true, payload: find_or_create(params[:symbol]))
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 
@@ -19,7 +19,7 @@ module Stocks
 
     def find_or_create(symbol)
       Stock.transaction(requires_new: true) do
-        Stock.find_or_create_by(symbol: symbol)
+        Stock.find_or_create_by(symbol:)
       end
     rescue ActiveRecord::RecordNotUnique
       retry

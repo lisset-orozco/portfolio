@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Portfolio < ApplicationRecord
-  validates_presence_of :name
+  validates :name, presence: true
 
   has_many :portfolio_stocks
   has_many :stocks, through: :portfolio_stocks

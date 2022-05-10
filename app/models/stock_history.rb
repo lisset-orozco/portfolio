@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class StockHistory < ApplicationRecord
-  validates_presence_of :amount, :price, :purchase_date
-  validates_comparison_of :purchase_date, less_than_or_equal_to: Date.today
+  validates :amount, :price, :purchase_date, presence: true
+  validates_comparison_of :purchase_date, less_than_or_equal_to: Time.zone.today
 
   belongs_to :portfolio_stock
 end

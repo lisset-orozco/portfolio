@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe PortfolioStock, type: :model do
+RSpec.describe(PortfolioStock, type: :model) do
+  subject { build(:portfolio_stock, portfolio:, stock:) }
+
   let(:stock) { create(:stock, symbol: 'ETHUSDT') }
   let(:portfolio) { create(:portfolio) }
-
-  subject { build(:portfolio_stock, portfolio: portfolio, stock: stock) }
 
   describe 'object' do
     it 'is valid' do
@@ -31,7 +31,8 @@ RSpec.describe PortfolioStock, type: :model do
 
   describe '.validation' do
     context 'when combined portfolio_id and stock_id are not unique' do
-      before { create(:portfolio_stock, portfolio: portfolio, stock: stock) }
+      before { create(:portfolio_stock, portfolio:, stock:) }
+
       it { expect(subject).to be_invalid }
     end
   end

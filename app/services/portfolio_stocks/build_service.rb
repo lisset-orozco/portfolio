@@ -8,12 +8,9 @@ module PortfolioStocks
     end
 
     def call
-      portfolio_stock = PortfolioStock.new(
-        portfolio: params[:portfolio],
-        stock_id: params[:stock_id]
-      )
+      portfolio_stock = PortfolioStock.new(portfolio: params[:portfolio], stock_id: params[:stock_id])
       response(success: true, payload: portfolio_stock)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

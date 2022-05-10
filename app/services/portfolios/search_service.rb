@@ -10,7 +10,7 @@ module Portfolios
     def call
       portfolio = Portfolio.find_by!(**params)
       response(success: true, payload: portfolio)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

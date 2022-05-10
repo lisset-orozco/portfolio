@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PortfolioStock < ApplicationRecord
-  validates :portfolio_id, uniqueness: { scope: :stock_id } 
+  validates :portfolio_id, uniqueness: { scope: :stock_id }
 
   belongs_to :portfolio
   belongs_to :stock

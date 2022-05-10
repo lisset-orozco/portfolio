@@ -10,7 +10,7 @@ module StockHistories
     def call
       stock = StockHistory.where(**params)
       response(success: true, payload: stock)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

@@ -10,7 +10,7 @@ module Portfolios
     def call
       portfolio = Portfolio.new(name: params[:name], description: params[:description])
       response(success: true, payload: portfolio)
-    rescue StandardError
+    rescue
       response(error: StandardError.new(self))
     end
 

@@ -8,11 +8,11 @@ module Stocks
     end
 
     def call
-      response = HttpClientUtil.call('get', build_params) 
+      response = HttpClientUtil.call('get', build_params)
       result = handle_response(response)
 
-      response(success: true, payload: result )
-    rescue StandardError
+      response(success: true, payload: result)
+    rescue
       response(error: StandardError.new(self))
     end
 
