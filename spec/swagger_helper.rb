@@ -27,7 +27,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: ENV.fetch('HOST') { 'localhost:3000' }
+              default: ENV.fetch('HOST') { 'portfolio-fintual.herokuapp.com' }
             }
           }
         }

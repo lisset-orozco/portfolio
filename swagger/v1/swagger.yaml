@@ -196,10 +196,10 @@ paths:
                     type: string
                     example: '32576.45'
 servers:
-- url: http://{defaultHost}
+- url: https://{defaultHost}
   variables:
     defaultHost:
-      default: localhost:3000
+      default: portfolio-fintual.herokuapp.com
 components:
   schemas:
     portfolio:
@@ -214,7 +214,7 @@ components:
         stocks:
           type: object
           properties:
-            roseusdt:
+            ROSEUSDT:
               type: array
               items:
                 type: object
@@ -228,7 +228,7 @@ components:
                   price:
                     type: number
                     example: 36.5
-            btcusdt:
+            BTCUSDT:
               type: array
               items:
                 type: object
@@ -242,7 +242,7 @@ components:
                   price:
                     type: number
                     example: 36550
-            ethusdt:
+            ETHUSDT:
               type: array
               items:
                 type: object

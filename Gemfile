@@ -47,8 +47,6 @@ gem 'rswag-api', '~> 2.5', '>= 2.5.1'
 # Expose beautiful API documentation, powered by Swagger JSON endpoints, including a UI to explore and test
 # operations. More about the OpenAPI initiative here: http://spec.openapis.org/
 gem 'rswag-ui', '~> 2.5', '>= 2.5.1'
-# Simple, efficient background processing for Ruby
-gem 'sidekiq', '~> 6.4', '>= 6.4.1'
 
 group :development, :test do
   # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure.

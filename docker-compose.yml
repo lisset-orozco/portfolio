@@ -35,14 +35,3 @@ services:
       - '6379:6379'
     volumes:
       - '.:/var/lib/redis/data'
-  sidekiq:
-    build: .
-    env_file: ./docker-env/.env
-    command: sh -c "bundle exec sidekiq"
-    volumes:
-      - '.:/myapp'
-    depends_on:
-      - 'db'
-      - 'redis'
-    tty: true
-    stdin_open: true
