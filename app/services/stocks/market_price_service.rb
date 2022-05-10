@@ -31,7 +31,7 @@ module Stocks
       raise unless (200..299).include?(response.code)
 
       result = JSON.parse(response.body)
-      result.present? ? result[0][4] : ''
+      result.present? ? format('%.2f', result[0][4]) : ''
     end
 
     def query_params

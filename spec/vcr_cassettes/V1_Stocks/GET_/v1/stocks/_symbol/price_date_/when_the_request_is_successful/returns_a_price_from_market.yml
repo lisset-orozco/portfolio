@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.binance.com/api/v3/klines?endTime=1651968000000&interval=1d&startTime=1651968000000&symbol=BTCUSDT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '189'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 10 May 2022 16:42:34 GMT
+      Server:
+      - nginx
+      X-Mbx-Uuid:
+      - be2e5994-59cb-4544-a667-7c553d563ba0
+      X-Mbx-Used-Weight:
+      - '1'
+      X-Mbx-Used-Weight-1m:
+      - '1'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'self'
+      X-Content-Security-Policy:
+      - default-src 'self'
+      X-Webkit-Csp:
+      - default-src 'self'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 f2bb277010056512fe11b0ad5745b1ba.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DFW56-P2
+      X-Amz-Cf-Id:
+      - R5qI4N7MkcWpggArku8xCLxSnR7FK4XGNp0PkaBj0U1-AGB_U5_HXA==
+    body:
+      encoding: UTF-8
+      string: '[[1651968000000,"35472.40000000","35514.22000000","33713.95000000","34038.40000000","72445.64344000",1652054399999,"2498365159.99458080",1301451,"32350.03935000","1115547715.91452730","0"]]'
+  recorded_at: Tue, 10 May 2022 16:42:34 GMT
+recorded_with: VCR 6.1.0

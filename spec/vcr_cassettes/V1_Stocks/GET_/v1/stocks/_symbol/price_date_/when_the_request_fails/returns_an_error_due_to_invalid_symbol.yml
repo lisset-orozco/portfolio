@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.binance.com/api/v3/klines?endTime=1651968000000&interval=1d&startTime=1651968000000&symbol=TESTUSDT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '38'
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 10 May 2022 16:42:35 GMT
+      Server:
+      - nginx
+      X-Mbx-Uuid:
+      - 0dc32746-8718-4712-8c36-ff523f8957a3
+      X-Mbx-Used-Weight:
+      - '2'
+      X-Mbx-Used-Weight-1m:
+      - '2'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'self'
+      X-Content-Security-Policy:
+      - default-src 'self'
+      X-Webkit-Csp:
+      - default-src 'self'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 e243983257fcce5bd109f05e71ec2dc0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DFW56-P2
+      X-Amz-Cf-Id:
+      - zTB2_7K3EoGI8Irpg-mC25Tjc4sSmpFtfLKLH-Jt3lf6lqnJymprjA==
+    body:
+      encoding: UTF-8
+      string: '{"code":-1121,"msg":"Invalid symbol."}'
+  recorded_at: Tue, 10 May 2022 16:42:35 GMT
+recorded_with: VCR 6.1.0
